@@ -1,0 +1,19 @@
+from hume import HumeBatchClient
+from hume.models.config import FaceConfig
+from hume.models.config import ProsodyConfig
+
+from pprint import pprint
+
+
+
+client = HumeBatchClient("jQQ9gJQPXS31GWAk2H1AJlBuYPfpEnd4EnapBO8JNdwxppuZ")
+urls = ["https://iep.utm.edu/wp-content/media/hume-bust.jpg"]
+config = FaceConfig()
+job = client.submit_job(urls, [config])
+
+
+
+from pprint import pprint
+
+predictions = job.get_predictions()
+pprint(predictions)
